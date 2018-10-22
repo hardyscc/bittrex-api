@@ -1,6 +1,6 @@
 {
-  "name": "bittrex-api",
-  "version": "0.0.0",
+  "name": "@hardyscc/bittrex-api",
+  "version": "0.0.2",
   "description": "",
   "keywords": [],
   "main": "dist/bittrex-api.umd.js",
