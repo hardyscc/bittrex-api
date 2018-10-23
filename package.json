@@ -1,6 +1,6 @@
 {
   "name": "@hardyscc/bittrex-api",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Bittrex Javascript API",
   "keywords": [
     "exchange",
