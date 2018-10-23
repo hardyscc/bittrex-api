@@ -24,26 +24,26 @@ const bittrex = new Bittrex({
 
   console.log('Open Orders =>', await bittrex.getOpenOrders(currency))
 
-  const resp = await bittrex.buy({
+  const respBuy = await bittrex.buy({
     coin: currency,
     quantity: 1,
     rate: 0.01
   })
-  console.log('Buy =>', resp)
+  console.log('Buy =>', respBuy)
 
-  if (resp.success) {
-    console.log('Cancel Buy =>', await bittrex.cancel(resp.result.uuid))
+  if (respBuy.success) {
+    console.log('Cancel Buy =>', await bittrex.cancel(respBuy.result.uuid))
   }
 
-  const resp = await bittrex.sell({
+  const respSell = await bittrex.sell({
     coin: currency,
     quantity: 1,
     rate: 0.1
   })
-  console.log('Sell =>', resp)
+  console.log('Sell =>', respSell)
 
-  if (resp.success) {
-    console.log('Cancel Sell =>', await bittrex.cancel(resp.result.uuid))
+  if (respSell.success) {
+    console.log('Cancel Sell =>', await bittrex.cancel(respSell.result.uuid))
   }
 })()
 ```
