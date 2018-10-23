@@ -5,10 +5,20 @@ import crypto from 'crypto'
 import axios from 'axios'
 import querystring from 'querystring'
 
-interface BuySell {
+export interface BuySellOption {
   coin: string
   quantity: number
   rate: number
+}
+
+export interface UuidResult {
+  uuid: string
+}
+
+export interface BuySellResult {
+  success: boolean
+  message: string
+  result: UuidResult
 }
 
 export default class Bittrex {
@@ -55,7 +65,7 @@ export default class Bittrex {
   }
 
   // Used to place a buy order in a specific market.
-  async buy({ coin, quantity, rate }: BuySell) {
+  async buy({ coin, quantity, rate }: BuySellOption): Promise<BuySellResult> {
     this.uri.pathname = '/api/v1.1/market/buylimit'
     const options = {
       market: `BTC-${coin}`,
@@ -68,7 +78,7 @@ export default class Bittrex {
   }
 
   // Used to place an sell order in a specific market
-  async sell({ coin, quantity, rate }: BuySell) {
+  async sell({ coin, quantity, rate }: BuySellOption): Promise<BuySellResult> {
     this.uri.pathname = '/api/v1.1/market/selllimit'
     const options = {
       market: `BTC-${coin}`,
