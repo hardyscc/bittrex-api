@@ -14,9 +14,7 @@ export interface BittrexTradeOption {
 export interface BittrexResult {
   success: boolean
   message: string
-  result: {
-    [key: string]: any
-  } | null
+  result: any
 }
 
 export default class Bittrex {
