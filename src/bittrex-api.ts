@@ -5,20 +5,18 @@ import crypto from 'crypto'
 import axios from 'axios'
 import querystring from 'querystring'
 
-export interface BuySellOption {
+export interface BittrexTradeOption {
   coin: string
   quantity: number
   rate: number
 }
 
-export interface UuidResult {
-  uuid: string
-}
-
-export interface BuySellResult {
+export interface BittrexResult {
   success: boolean
   message: string
-  result: UuidResult
+  result: {
+    [key: string]: any
+  } | null
 }
 
 export default class Bittrex {
@@ -54,7 +52,7 @@ export default class Bittrex {
     return data
   }
 
-  async getBalance(currency = 'ETH') {
+  async getBalance(currency = 'ETH'): Promise<BittrexResult> {
     this.uri.pathname = '/api/v1.1/account/getbalance'
     const options = {
       currency,
@@ -65,7 +63,7 @@ export default class Bittrex {
   }
 
   // Used to place a buy order in a specific market.
-  async buy({ coin, quantity, rate }: BuySellOption): Promise<BuySellResult> {
+  async buy({ coin, quantity, rate }: BittrexTradeOption): Promise<BittrexResult> {
     this.uri.pathname = '/api/v1.1/market/buylimit'
     const options = {
       market: `BTC-${coin}`,
@@ -78,7 +76,7 @@ export default class Bittrex {
   }
 
   // Used to place an sell order in a specific market
-  async sell({ coin, quantity, rate }: BuySellOption): Promise<BuySellResult> {
+  async sell({ coin, quantity, rate }: BittrexTradeOption): Promise<BittrexResult> {
     this.uri.pathname = '/api/v1.1/market/selllimit'
     const options = {
       market: `BTC-${coin}`,
@@ -90,7 +88,7 @@ export default class Bittrex {
     return this.request(options)
   }
 
-  async cancel(uuid: string) {
+  async cancel(uuid: string): Promise<BittrexResult> {
     this.uri.pathname = '/api/v1.1/market/cancel'
     const options = {
       uuid,
@@ -100,13 +98,13 @@ export default class Bittrex {
     return this.request(options)
   }
 
-  async getMarketSummary(currency = 'ETH') {
+  async getMarketSummary(currency = 'ETH'): Promise<BittrexResult> {
     this.uri.pathname = '/api/v1.1/public/getmarketsummary'
     const market = `BTC-${currency}`
     return this.request({ market })
   }
 
-  async getOrderBook(currency = 'ETH', type = 'both') {
+  async getOrderBook(currency = 'ETH', type = 'both'): Promise<BittrexResult> {
     this.uri.pathname = '/api/v1.1/public/getorderbook'
     const options = {
       market: `BTC-${currency}`,
@@ -115,7 +113,7 @@ export default class Bittrex {
     return this.request(options)
   }
 
-  async getOpenOrders(currency = 'ETH') {
+  async getOpenOrders(currency = 'ETH'): Promise<BittrexResult> {
     this.uri.pathname = '/api/v1.1/market/getopenorders'
     const options = {
       market: `BTC-${currency}`,
