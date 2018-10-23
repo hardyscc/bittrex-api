@@ -1,8 +1,12 @@
 {
   "name": "@hardyscc/bittrex-api",
   "version": "0.0.3",
-  "description": "",
-  "keywords": [],
+  "description": "Bittrex Javascript API",
+  "keywords": [
+    "exchange",
+    "bittrex",
+    "crypto"
+  ],
   "main": "dist/bittrex-api.umd.js",
   "module": "dist/bittrex-api.es5.js",
   "typings": "dist/types/bittrex-api.d.ts",
@@ -12,7 +16,7 @@
   "author": "Hardys <hardyscc@gmail.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/hardyscc/bittrex-api.git"
   },
   "license": "MIT",
   "engines": {

@@ -60,7 +60,8 @@ export default class Bittrex {
     const options = {
       market: `BTC-${coin}`,
       quantity,
-      rate
+      rate,
+      apikey: this.key
     }
     return this.request(options)
   }
@@ -71,7 +72,8 @@ export default class Bittrex {
     const options = {
       market: `BTC-${coin}`,
       quantity,
-      rate
+      rate,
+      apikey: this.key
     }
     return this.request(options)
   }
