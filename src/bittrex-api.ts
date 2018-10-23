@@ -61,7 +61,8 @@ export default class Bittrex {
       market: `BTC-${coin}`,
       quantity,
       rate,
-      apikey: this.key
+      apikey: this.key,
+      nonce: new Date().getTime()
     }
     return this.request(options)
   }
@@ -73,7 +74,8 @@ export default class Bittrex {
       market: `BTC-${coin}`,
       quantity,
       rate,
-      apikey: this.key
+      apikey: this.key,
+      nonce: new Date().getTime()
     }
     return this.request(options)
   }
@@ -82,7 +84,8 @@ export default class Bittrex {
     this.uri.pathname = '/api/v1.1/market/cancel'
     const options = {
       uuid,
-      apikey: this.key
+      apikey: this.key,
+      nonce: new Date().getTime()
     }
     return this.request(options)
   }
