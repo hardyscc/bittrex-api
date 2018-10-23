@@ -1,14 +1,14 @@
-import DummyClass from "../src/bittrex-api"
+import Bittrex from '../src/bittrex-api'
 
 /**
- * Dummy test
+ * Bittrex test
  */
-describe("Dummy test", () => {
-  it("works if true is truthy", () => {
+describe('Bittrex test', () => {
+  it('works if true is truthy', () => {
     expect(true).toBeTruthy()
   })
 
-  it("DummyClass is instantiable", () => {
-    expect(new DummyClass()).toBeInstanceOf(DummyClass)
+  it('Bittrex is instantiable', () => {
+    expect(new Bittrex({})).toBeInstanceOf(Bittrex)
   })
 })
