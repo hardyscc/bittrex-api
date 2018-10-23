@@ -44,7 +44,7 @@ export default class Bittrex {
     return data
   }
 
-  async getBalance(currency = 'DCR') {
+  async getBalance(currency = 'ETH') {
     this.uri.pathname = '/api/v1.1/account/getbalance'
     const options = {
       currency,
@@ -90,13 +90,13 @@ export default class Bittrex {
     return this.request(options)
   }
 
-  async getMarketSummary(currency = 'DCR') {
+  async getMarketSummary(currency = 'ETH') {
     this.uri.pathname = '/api/v1.1/public/getmarketsummary'
     const market = `BTC-${currency}`
     return this.request({ market })
   }
 
-  async getOrderBook(currency = 'DCR', type = 'both') {
+  async getOrderBook(currency = 'ETH', type = 'both') {
     this.uri.pathname = '/api/v1.1/public/getorderbook'
     const options = {
       market: `BTC-${currency}`,
@@ -105,7 +105,7 @@ export default class Bittrex {
     return this.request(options)
   }
 
-  async getOpenOrders(currency = 'DCR') {
+  async getOpenOrders(currency = 'ETH') {
     this.uri.pathname = '/api/v1.1/market/getopenorders'
     const options = {
       market: `BTC-${currency}`,
