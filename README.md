@@ -3,7 +3,7 @@
 ## Sample Usage
 
 ```javascript
-const Bittrex = require('@hardyscc/bittrex-api')
+const { Bittrex } = require('@hardyscc/bittrex-api')
 
 const bittrex = new Bittrex({
   apikey: 'key',

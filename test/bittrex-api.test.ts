@@ -1,4 +1,4 @@
-import Bittrex from '../src/bittrex-api'
+import { Bittrex } from '../src/bittrex-api'
 
 /**
  * Bittrex test

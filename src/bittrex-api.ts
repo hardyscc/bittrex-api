@@ -17,7 +17,7 @@ export interface BittrexResult {
   result: any
 }
 
-export default class Bittrex {
+export class Bittrex {
   key: string
   secret: string
   uri: URL
