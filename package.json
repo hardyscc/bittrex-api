@@ -8,7 +8,7 @@
     "crypto"
   ],
   "main": "dist/bittrex-api.umd.js",
-  "module": "dist/bittrex-api.es5.js",
+  "module": "dist/bittrex-api.esm.js",
   "typings": "dist/types/bittrex-api.d.ts",
   "files": [
     "dist"
