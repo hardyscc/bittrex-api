@@ -1,4 +1,4 @@
-# Bittrex Javascript API
+# Bittrex JavaScript API
 
 ## Sample Usage
 
